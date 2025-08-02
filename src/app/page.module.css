@@ -91,6 +91,10 @@
   font-size: 3rem;
 }
 
+.footerContainer {
+  padding: 10%;
+}
+
 @media (max-width: 600px) {
   .companyInfoTitle {
     font-size: 2.4rem;

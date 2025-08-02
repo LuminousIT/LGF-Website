@@ -5,7 +5,7 @@ import CompanyInfo from "./_components/CompanyInfo";
 import CompanyDetails from "./_components/CompanyDetails";
 
 import { Projects } from "./_components/Projects";
-// import { SocialsDetails } from "./_components/SocialsDetails";
+import { FooterDetails } from "./_components/FooterDetails";
 
 export default function Home() {
   return (
@@ -23,8 +23,10 @@ export default function Home() {
         <section className={styles.sessionInfo}>
           <Projects />
         </section>
-        <section>{/* <SocialsDetails /> */}</section>
       </main>
+      <footer className={styles.sectionInfo}>
+        <FooterDetails />
+      </footer>
     </div>
   );
 }
