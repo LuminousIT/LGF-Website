@@ -11,7 +11,7 @@ const CompanyInfo = () => {
     <div
       className={`${styles.companyInfoContainer} ${archivoBlack.className}  `}
     >
-      <div className={`${styles.infoTitleBox} relative`}>
+      <div className={`${styles.infoTitleBox} relative p-8`}>
         <div className={`${styles.starOne}`}>
           <Image
             src={
@@ -23,6 +23,9 @@ const CompanyInfo = () => {
           />
         </div>
         <h2 className={`${styles.companyInfoTitle}`}>LIGHT GROUP FOUNDATION</h2>
+        <p className={`${permanentMarkerFont.className}`}>
+          ...being a vehicle to impact lives through Arts and Technology!
+        </p>
         <div className={`${styles.starTwo}`}>
           <Image
             src={
@@ -34,10 +37,6 @@ const CompanyInfo = () => {
           />
         </div>
       </div>
-
-      <p className={`${permanentMarkerFont.className}`}>
-        ...being a vehicle to impact lives through Arts and Technology!
-      </p>
     </div>
   );
 };
