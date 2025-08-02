@@ -1,12 +1,13 @@
 @import "tailwindcss";
-/* @import "tw-animate-css"; */
+@import "tw-animate-css";
 
-/* @custom-variant dark (&:is(.dark *)); */
+@custom-variant dark (&:is(.dark *));
 
 html,
 body {
   /* max-width: 100vw;
   overflow-x: hidden; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -144,5 +145,31 @@ a {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* card item */
+
+.card-container {
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  padding: 40px;
+  margin: 20px;
+  width: 400px;
+  height: 300px;
+  overflow-y: hidden;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card-container h4 {
+  font-size: 2rem;
+  color: #e77728;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    height: auto;
   }
 }

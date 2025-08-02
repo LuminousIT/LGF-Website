@@ -1,16 +1,17 @@
+// author: Khoa Phan <https://www.pldkhoa.dev>
+
 "use client";
-import styles from "./page.module.css";
-import { LandingHero } from "./_components/LandingHero";
-import CompanyInfo from "./_components/CompanyInfo";
-import CompanyDetails from "./_components/CompanyDetails";
-import { useEffect, useRef, useState } from "react";
+
+import { useState } from "react";
+import Image from "next/image";
+import { Ref } from "react";
+
+import { cn } from "@/lib/utils";
 import StackingCards, {
   StackingCardItem,
 } from "@/components/fancy/blocks/stacking-cards";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 
-export const cards = [
+const cards = [
   {
     bgColor: "bg-[#f97316]",
     title: "The Guiding Light",
@@ -53,29 +54,62 @@ export const cards = [
   },
 ];
 
-export default function Home() {
-  // const containerRef = useRef<HTMLDivElement | null>(null);
-  const [containerRef, setContainerRef] = useState<HTMLElement | null>(null);
-  const [isContainerReady, setIsContainerReady] = useState(false);
+type Props = {
+  ref: HTMLElement | null;
+};
+export default function StackingCardsDemo({ ref }: Props) {
+  const [container, setContainer] = useState<HTMLElement | null>(null);
+  // const container = ref;
 
-  console.log({ containerRef, cards });
-
-  useEffect(() => {
-    if (containerRef) setIsContainerReady(true);
-  }, []);
   return (
-    <div className={styles.page}>
-      <main>
-        <section className={styles.hero}>
-          <LandingHero />
-        </section>
-        <section className={styles.sessionInfo}>
-          <CompanyInfo />
-        </section>
-        <section className={styles.sessionInfo}>
-          <CompanyDetails />
-        </section>
-      </main>
+    <div
+      className="h-[620px] bg-white overflow-auto text-white"
+      ref={(node) => {
+        console.log({ node });
+        setContainer(node);
+      }}
+      // ref={container}
+    >
+      <StackingCards
+        totalCards={cards.length}
+        scrollOptons={{ container: { current: ref } }}
+      >
+        <div className="relative font-calendas h-[620px] w-full z-10 text-2xl md:text-7xl font-bold uppercase flex justify-center items-center text-[#ff5941] whitespace-pre">
+          Scroll down ↓
+        </div>
+        {cards.map(({ bgColor, description, image, title }, index) => {
+          return (
+            <StackingCardItem key={index} index={index} className="h-[620px]">
+              <div
+                className={cn(
+                  bgColor,
+                  "h-[80%] sm:h-[70%] flex-col sm:flex-row aspect-video px-8 py-10 flex w-11/12 rounded-3xl mx-auto relative"
+                )}
+              >
+                <div className="flex-1 flex flex-col justify-center">
+                  <h3 className="font-bold text-2xl mb-5">{title}</h3>
+                  <p>{description}</p>
+                </div>
+
+                <div className="w-full sm:w-1/2 rounded-xl aspect-video relative overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title}
+                    className="object-cover"
+                    fill
+                  />
+                </div>
+              </div>
+            </StackingCardItem>
+          );
+        })}
+
+        <div className="w-full h-80 relative overflow-hidden">
+          <h2 className="absolute bottom-0 left-0 translate-y-1/3 sm:text-[192px] text-[80px] text-[#ff5941] font-calendas">
+            fancy
+          </h2>
+        </div>
+      </StackingCards>
     </div>
   );
 }
