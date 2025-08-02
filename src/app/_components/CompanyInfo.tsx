@@ -1,8 +1,4 @@
-import {
-  alluraFont,
-  archivoBlack,
-  permanentMarkerFont,
-} from "@/components/Fonts";
+import { archivoBlack, permanentMarkerFont } from "@/components/Fonts";
 import styles from "../page.module.css";
 import Image from "next/image";
 

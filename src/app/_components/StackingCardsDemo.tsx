@@ -2,16 +2,13 @@
 
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { Ref } from "react";
-
 import { cn } from "@/lib/utils";
 import StackingCards, {
   StackingCardItem,
 } from "@/components/fancy/blocks/stacking-cards";
 
-const cards = [
+export const cards = [
   {
     bgColor: "bg-[#f97316]",
     title: "The Guiding Light",
@@ -58,18 +55,8 @@ type Props = {
   ref: HTMLElement | null;
 };
 export default function StackingCardsDemo({ ref }: Props) {
-  const [container, setContainer] = useState<HTMLElement | null>(null);
-  // const container = ref;
-
   return (
-    <div
-      className="h-[620px] bg-white overflow-auto text-white"
-      ref={(node) => {
-        console.log({ node });
-        setContainer(node);
-      }}
-      // ref={container}
-    >
+    <div className="h-[620px] bg-white overflow-auto text-white">
       <StackingCards
         totalCards={cards.length}
         scrollOptons={{ container: { current: ref } }}

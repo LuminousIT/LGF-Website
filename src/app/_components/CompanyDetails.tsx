@@ -1,6 +1,5 @@
 import { CardItem } from "@/components/CardItem";
 import styles from "../page.module.css";
-// import StackingCardsDemo from "./StackingCardsDemo";
 
 const CompanyDetails = () => {
   return (
