@@ -5,6 +5,7 @@ import CompanyInfo from "./_components/CompanyInfo";
 import CompanyDetails from "./_components/CompanyDetails";
 
 import { Projects } from "./_components/Projects";
+// import { SocialsDetails } from "./_components/SocialsDetails";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         <section className={styles.sessionInfo}>
           <Projects />
         </section>
+        <section>{/* <SocialsDetails /> */}</section>
       </main>
     </div>
   );
