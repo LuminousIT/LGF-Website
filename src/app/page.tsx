@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import styles from "./page.module.css";
 import { LandingHero } from "./_components/LandingHero";
 import CompanyInfo from "./_components/CompanyInfo";
@@ -23,6 +23,9 @@ export default function Home() {
         <section className={styles.sessionInfo}>
           <Projects />
         </section>
+        {/* <section>
+          <Registration />
+        </section> */}
       </main>
       <footer className={styles.sectionInfo}>
         <FooterDetails />
